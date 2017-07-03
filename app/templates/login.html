@@ -1,0 +1,94 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <title>CAA | Login </title>
+     <!-- Favicon-->
+    <link rel="icon" href="{{url_for('static', filename='images/fav.ico')}}" type="image/x-icon">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&subset=latin,cyrillic-ext" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" type="text/css">
+    <!-- Bootstrap Core Css -->
+    <link href="{{url_for('static', filename='plugins/bootstrap/css/bootstrap.css')}}" rel="stylesheet">
+    <!-- Waves Effect Css -->
+    <link href="{{url_for('static', filename='plugins/node-waves/waves.css')}}" rel="stylesheet" />
+    <!-- Animation Css -->
+    <link href="{{url_for('static', filename='plugins/animate-css/animate.css')}}" rel="stylesheet" />
+    <!-- Custom Css -->
+    <link href="{{url_for('static', filename='css/style.css')}}" rel="stylesheet">
+</head>
+
+<body class="login-page" background="{{url_for('static', filename='images/back.png')}}">
+    <div class="login-box">        
+        <div class="card">
+            <div class="body">
+                <form id="sign_in" method="POST">
+                	<div class="msg"><img src="{{url_for('static',filename='images/caa_logo_.PNG')}}"  style="width:292px;height:75px;">
+                    </div>
+                    <div class="msg">Audit Inspection Database</div>
+                    <div class="input-group">
+                        <span class="input-group-addon">
+                            <i class="material-icons">person</i>
+                        </span>
+                        <div class="form-line">
+                        <input type="text" class="form-control" name="username" placeholder="Username" required autofocus>
+                        </div>
+                    </div>
+                    <div class="input-group">
+                        <span class="input-group-addon">
+                            <i class="material-icons">lock</i>
+                        </span>
+                        <div class="form-line">
+                            <input type="password" class="form-control" name="password" placeholder="Password" required>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-8 p-t-5">
+                            <input type="checkbox" name="rememberme" id="rememberme" class="filled-in chk-col-blue">
+                            <label for="rememberme">Remember Me</label>
+                        </div>
+                        <div class="col-xs-4">
+                            <button class="btn btn-block bg-blue waves-effect" type="submit">LOG IN</button>
+                        </div>
+                    </div>
+                    <div class="row m-t-15 m-b--20">                        
+                        <div class="col-xs-12 align-right">
+                            <a href="{{ url_for('main.forgotPassword') }}">Forgot Password?</a>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>        
+    </div>
+    <div class="row">
+        <footer class="col col-md-12">
+            <p class="col-white font-11">
+				Kjo platformë u ndërtua si donacion në kuadër te projektit <a href="http://techstitution.org/">Techstitution</a> 
+			</p>
+			<p class="col-white font-10">
+				 Lagjja Arbëria,  Rr. Ahmet Krasniqi, p.n. 10000 Prishtinë, Republika e Kosovës
+                 </br> © 2017 Autoriteti i Aviacionit Civil
+			</p>
+        </footer>                        
+    </div>
+     
+
+    <!-- Jquery Core Js -->
+    <script src="{{url_for('static', filename ='plugins/jquery/jquery.min.js')}}"></script>
+
+    <!-- Bootstrap Core Js -->
+    <script src="{{url_for('static', filename='plugins/bootstrap/js/bootstrap.js')}}"></script>
+
+    <!-- Waves Effect Plugin Js -->
+    <script src="{{url_for('static', filename='plugins/node-waves/waves.js')}}"></script>
+
+    <!-- Validation Plugin Js -->
+    <script src="{{url_for('static', filename='plugins/jquery-validation/jquery.validate.js')}}"></script>
+
+    <!-- Custom Js -->
+    <script src="{{url_for('static', filename='js/admin.js')}}"></script>
+    <script src="{{url_for('static', filename='js/pages/examples/sign-in.js')}}"></script>
+</body>
+</html>

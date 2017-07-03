@@ -1,0 +1,216 @@
+﻿	{% extends "layout.html" %}
+
+    {% block scripts %}
+	<!-- Sweet Alert Css -->
+    <link href="{{url_for('static', filename='plugins/sweetalert/sweetalert.css')}}" rel="stylesheet" />
+    {% endblock %}
+    <title>{% block title %}User{% endblock %}</title>
+    <!-- CONTENT -->
+    {% block content %}
+    <section class="container">
+        <div class="container-fluid">
+            <ol class="breadcrumb">
+                <li><a href="javascript:void(0);">Dashboard</a></li>
+                <li><a href="javascript:void(0);">User</a></li>
+                <li class="active">Profile</li>
+            </ol>
+        </div>
+        <div>
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="card">                       
+                        <div class="body">
+                            <!-- Nav tabs -->
+                            <ul class="nav nav-tabs" role="tablist">
+                                <li role="presentation" class="active">
+                                    <a href="#home_with_icon_title" data-toggle="tab" aria-expanded="false">
+                                        <i class="material-icons">person</i> INFO
+                                    </a>
+                                </li>
+                                <li role="presentation" class="">
+                                    <a href="#profile_with_icon_title" data-toggle="tab" aria-expanded="false">
+                                        <i class="material-icons">lock_open</i> PASSWORD
+                                    </a>
+                                </li>
+                                <li role="presentation" class="">
+                                    <a href="#messages_with_icon_title" data-toggle="tab" aria-expanded="false">
+                                        <i class="material-icons">email</i> MESSAGES
+                                    </a>
+                                </li>
+                                <li role="presentation" class="">
+                                    <a href="#settings_with_icon_title" data-toggle="tab" aria-expanded="true">
+                                        <i class="material-icons">settings</i> SETTINGS
+                                    </a>
+                                </li>
+                            </ul>
+
+                            <!-- Tab panes -->
+                            <div class="tab-content">
+                                <div role="tabpanel" class="tab-pane fade active in" id="home_with_icon_title">
+                                    <b>User Information</b>
+                                <div class="body">
+                                    <form class="form-horizontal">
+                                        <div class="row clearfix">
+                                        <div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
+                                            <label for="">Username</label>
+                                        </div>
+                                        <div class="col-lg-10 col-md-10 col-sm-8 col-xs-7">
+                                            <div class="form-group">
+                                                <div class="form-line">
+                                                    <input id="" class="form-control" placeholder="username" type="text" disabled="">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        </div>                                       
+                                        <div class="row clearfix">
+                                        <div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
+                                        <label for="">Name:</label>
+                                        </div>
+                                        <div class="col-lg-10 col-md-10 col-sm-8 col-xs-7">
+                                            <div class="form-group">
+                                                <div class="form-line">
+                                                    <input id="" class="form-control" placeholder="Name" type="text">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        </div>
+                                        <div class="row clearfix">
+                                        <div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
+                                            <label for="">Surname</label>
+                                        </div>
+                                        <div class="col-lg-10 col-md-10 col-sm-8 col-xs-7">
+                                            <div class="form-group">
+                                                <div class="form-line">
+                                                    <input id="" class="form-control" placeholder="Surname" type="text">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        </div>
+                                        <div class="row clearfix">
+                                        <div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
+                                            <label for="">Email</label>
+                                        </div>
+                                        <div class="col-lg-10 col-md-10 col-sm-8 col-xs-7">
+                                            <div class="form-group">
+                                                <div class="form-line">
+                                                    <input id="" class="form-control" placeholder="Email" type="email">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        </div>                                         
+                                        <div class="row clearfix">
+                                        <div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
+                                            <label for="">Phone</label>
+                                        </div>
+                                        <div class="col-lg-10 col-md-10 col-sm-8 col-xs-7">
+                                            <div class="form-group">
+                                                <div class="form-line">
+                                                    <input id="" class="form-control" placeholder="044123456" type="number">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        </div>                                         
+                                        <div class="row clearfix">
+                                        <div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
+                                            <label for="">Role</label>
+                                        </div>
+                                        <div class="col-lg-10 col-md-10 col-sm-8 col-xs-7">
+                                            <div class="form-group">
+                                                <div class="form-line">
+                                                    <input id="" class="form-control" placeholder="Administrator" type="text" disabled="">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        </div>                                         
+                                        <div class="row clearfix">
+                                        <div class="col-lg-offset-2 col-md-offset-2 col-sm-offset-4 col-xs-offset-5">
+                                            <button type="button" class="btn btn-primary m-t-15 waves-effect">UPDATE</button>
+                                        </div>
+                                        </div>
+                                    </form>
+                                </div>
+                                </div>
+                                <div role="tabpanel" class="tab-pane fade" id="profile_with_icon_title">
+                                    <b>Change Password</b>
+                                    <div class="body">
+                                    <form class="form-horizontal">
+                                        <div class="row clearfix">
+                                        <div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
+                                        <label for="">Old Password</label>
+                                        </div>
+                                        <div class="col-lg-10 col-md-10 col-sm-8 col-xs-7">
+                                            <div class="form-group">
+                                                <div class="form-line">
+                                                    <input id="" class="form-control" placeholder="" type="password">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        </div>
+                                        <div class="row clearfix">
+                                        <div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
+                                            <label for="">New Password</label>
+                                        </div>
+                                        <div class="col-lg-10 col-md-10 col-sm-8 col-xs-7">
+                                            <div class="form-group">
+                                                <div class="form-line">
+                                                    <input id="" class="form-control" placeholder="" type="password">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        </div>                                       
+                                        <div class="row clearfix">
+                                        <div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
+                                            <label for="">Retype New Password</label>
+                                        </div>
+                                        <div class="col-lg-10 col-md-10 col-sm-8 col-xs-7">
+                                            <div class="form-group">
+                                                <div class="form-line">
+                                                    <input id="" class="form-control" placeholder="" type="password">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        </div>
+                                        <div class="row clearfix">
+                                        <div class="col-lg-offset-2 col-md-offset-2 col-sm-offset-4 col-xs-offset-5">
+                                            <button type="button" class="btn btn-primary m-t-15 waves-effect">UPDATE</button>
+                                        </div>
+                                        </div>
+                                    </form>
+                                </div>
+                                </div>
+                                <div role="tabpanel" class="tab-pane fade" id="messages_with_icon_title">
+                                    <b>Extra Content</b>
+                                    <p>
+                                        Lorem ipsum dolor sit amet, ut duo atqui exerci dicunt, ius impedit mediocritatem an. Pri ut tation electram moderatius.
+                                        Per te suavitate democritum. Duis nemore probatus ne quo, ad liber essent aliquid
+                                        pro. Et eos nusquam accumsan, vide mentitum fabellas ne est, eu munere gubergren
+                                        sadipscing mel.
+                                    </p>
+                                </div>
+                                <div role="tabpanel" class="tab-pane fade" id="settings_with_icon_title">
+                                    <b>Extra Content</b>
+                                    <p>
+                                        Lorem ipsum dolor sit amet, ut duo atqui exerci dicunt, ius impedit mediocritatem an. Pri ut tation electram moderatius.
+                                        Per te suavitate democritum. Duis nemore probatus ne quo, ad liber essent aliquid
+                                        pro. Et eos nusquam accumsan, vide mentitum fabellas ne est, eu munere gubergren
+                                        sadipscing mel.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+    </section>
+
+
+    {% endblock %}
+    <!-- #CONTENT -->
+
+
+
+    {% block bottomScripts %}
+       
+    
+    {% endblock %}
+    

@@ -1,0 +1,202 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <title>CAA | {% block title %}{% endblock %}</title>
+    
+    <script
+      src="https://code.jquery.com/jquery-3.2.1.min.js" 
+      integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" 
+      crossorigin="anonymous">          
+    </script>
+    <!-- Favicon-->
+    <!--<link rel="icon" href="{{url_for('static', filename='images/favicon.ico')}}" type="image/x-icon"/>-->
+    <link rel="icon" type="image/png" href="{{url_for('static', filename='images/favicon-16x16.png')}}" sizes="16x16" />
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&subset=latin,cyrillic-ext"
+     rel="stylesheet" type="text/css"/>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" type="text/css"/>
+    <!-- Bootstrap Core Css -->
+    <link href="{{url_for('static', filename='plugins/bootstrap/css/bootstrap.css')}}" rel="stylesheet"/>
+    <!-- Waves Effect Css -->
+    <link href="{{url_for('static', filename='plugins/node-waves/waves.css')}}" rel="stylesheet" />    
+     <!-- Bootstrap Material Datetime Picker Css -->
+    <link href="{{url_for('static', filename='plugins/bootstrap-material-datetimepicker/css/bootstrap-material-datetimepicker.css')}}" rel="stylesheet" />
+    <!-- Wait Me Css -->
+    <link href="{{url_for('static', filename='plugins/waitme/waitMe.css')}}" rel="stylesheet" />
+     <!-- Bootstrap Select Css -->
+    <link href="{{url_for('static', filename='plugins/bootstrap-select/css/bootstrap-select.css')}}"
+     rel="stylesheet" />
+    <!-- Animation Css -->
+    <link href="{{url_for('static', filename='plugins/animate-css/animate.css')}}" rel="stylesheet" />
+    <!-- Custom Css -->
+    <link href="{{url_for('static', filename='css/style.css')}}" rel="stylesheet"/>
+    <!-- Theme -->
+    <link href="{{url_for('static', filename='css/themes/all-themes.css')}}" rel="stylesheet" />
+    
+    {% block scripts %}    
+    {% endblock %}
+
+</head>
+<body class="theme-blue">
+    <!-- Page Loader -->
+    <div class="page-loader-wrapper">
+        <div class="loader">
+            <div class="preloader">
+                <div class="spinner-layer pl-blue">
+                    <div class="circle-clipper left">
+                        <div class="circle"></div>
+                    </div>
+                    <div class="circle-clipper right">
+                        <div class="circle"></div>
+                    </div>
+                </div>
+            </div>
+            <p>Please wait...</p>
+        </div>
+    </div>
+    <!-- #END# Page Loader -->
+    <!-- Search Bar -->
+    <div class="search-bar">
+        <div class="search-icon">
+            <i class="material-icons">search</i>
+        </div>
+        <input type="text" placeholder="START TYPING...">
+        <div class="close-search">
+            <i class="material-icons">close</i>
+        </div>
+    </div>
+    <!-- #END# Search Bar -->
+    <!-- MENU -->
+    <nav class="navbar">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a href="javascript:void(0);" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false"></a>
+                <a href="javascript:void(0);" class="bars"></a>                
+               <a href="{{url_for('main.index')}}">
+                    <img src="{{url_for('static',filename='images/caa-trans.png')}}" style="width:85px;height:51px;margin-left: 60px;">
+               </a>               
+            </div>
+            <div class="collapse navbar-collapse" id="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">                    
+                    <!-- MENU ITEMS -->
+                    <li class="dropdown">
+                        <a href="{{ url_for('main.index')}}" >
+                            <i class="material-icons" data-toggle="tooltip" data-placement="bottom" title="Dashboard">home</i>                            
+                        </a>                       
+                    </li>                   
+                    <li class="dropdown">
+                        <a href="{{ url_for('main.newAudit')}}">
+                            <i class="material-icons" data-toggle="tooltip" data-placement="bottom" title="New Audit">create_new_folder</i>                            
+                        </a>                        
+                    </li>
+                    <li class="dropdown">
+                        <a  href="{{ url_for('main.admin')}}">
+                            <i class="material-icons" data-toggle="tooltip" data-placement="bottom" title="Admin Panel">supervisor_account</i>                            
+                        </a>                        
+                    </li>
+                    <li class="dropdown">
+                        <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button">
+                            <i class="material-icons" data-toggle="tooltip" data-placement="bottom" title="Page name 4">notifications</i>                            
+                        </a>                        
+                    </li>                    
+                    <li class="dropdown">
+                        <a href="{{ url_for('main.user') }}" >
+                            <i class="material-icons" data-toggle="tooltip" data-placement="bottom" title="Account">account_circle</i>                            
+                        </a>                        
+                    </li>                    
+                    <!-- #END# Tasks -->                
+                    <!-- Call Search -->
+                    <li><a href="javascript:void(0);" class="js-search" data-close="true"><i class="material-icons">search</i></a>
+                    </li>
+                    <!-- #END# Call Search -->                   
+                    <!-- Popup menu -->                         
+                    <li class="dropdown">                    
+                        <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true">
+                            <i class="material-icons">more_vert</i>
+                        </a>
+                        <ul class="dropdown-menu pull-right">
+                            <li><a href="{{ url_for('main.user') }}" class=" waves-effect waves-block">
+                                <i class="material-icons">person</i>Profile</a>
+                            </li>
+                            <li role="seperator" class="divider"></li>
+                            <li><a href="javascript:void(0);" class=" waves-effect waves-block">
+                                <i class="material-icons">group</i>Data</a>
+                            </li>
+                            <li><a href="javascript:void(0);" class=" waves-effect waves-block">
+                                <i class="material-icons">folder_open</i>Reports</a>
+                            </li>                            
+                            <li role="seperator" class="divider"></li>
+                                <li><a href="javascript:void(0);" class=" waves-effect waves-block">
+                                <i class="material-icons">input</i>Log Out</a>
+                            </li>
+                        </ul>      
+                    </li>                    
+                    
+                </ul>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- Content Block -->
+    {% block content %}
+
+
+    {% endblock %}
+    <!-- #Content Block# -->
+
+    <!-- Footer -->
+    <footer class="col col-md-12 align-center">
+    <div class="legal">
+            <p class="col-grey font-11">
+                Kjo platformë u ndërtua si donacion në kuadër te projektit <a href="http://techstitution.org/">Techstitution</a> 
+            </p>
+            <p class="col-grey font-11">
+                 Lagjja Arbëria,  Rr. Ahmet Krasniqi, p.n. 10000 Prishtinë, Republika e Kosovës
+                 <br> © 2017 Autoriteti i Aviacionit Civil 
+            </p>
+
+    </div>
+    </footer>
+    <!-- #Footer# -->
+
+    <!-- Scripts -->        
+    
+    <!-- Jquery Core Js -->
+    <script src="{{url_for('static', filename='plugins/jquery/jquery.min.js')}}"></script>
+    <!-- Bootstrap Core Js -->
+    <script src="{{url_for('static', filename='plugins/bootstrap/js/bootstrap.js')}}"></script>
+    <!-- Select Plugin Js -->
+    <script src="{{url_for('static', filename='plugins/bootstrap-select/js/bootstrap-select.js')}}"></script>
+    <!-- Slimscroll Plugin Js -->
+    <script src="{{url_for('static', filename='plugins/jquery-slimscroll/jquery.slimscroll.js')}}"></script>
+    <!-- Waves Effect Plugin Js -->
+    <script src="{{url_for('static', filename='plugins/node-waves/waves.js')}}"></script>
+     <!-- Jquery CountTo Plugin Js -->
+    <script src="{{url_for('static', filename='plugins/jquery-countto/jquery.countTo.js')}}"></script>
+    <!-- Autosize Plugin Js -->
+    <script src="{{url_for('static', filename='plugins/autosize/autosize.js')}}"></script>
+    <!-- Moment Plugin Js -->
+    <script src="{{url_for('static', filename='plugins/momentjs/moment.js')}}"></script>      
+    <!-- Bootstrap Material Datetime Picker Plugin Js -->
+    <script src="{{url_for('static', filename='plugins/bootstrap-material-datetimepicker/js/bootstrap-material-datetimepicker.js')}}"></script>    
+    <!-- Jquery Validation Plugin Css -->
+    <script src="{{url_for('static', filename='plugins/jquery-validation/jquery.validate.js')}}"></script>        
+    <!-- Sweet Alert Plugin Js -->
+    <script src="{{url_for('static', filename='plugins/sweetalert/sweetalert.min.js')}}"></script>        
+    <!-- Custom Js -->
+    <script src="{{url_for('static', filename='js/admin.js')}}"></script>
+    <script src="{{url_for('static', filename='js/pages/ui/tooltips-popovers.js')}}"></script>
+    <script src="{{url_for('static', filename='js/pages/forms/basic-form-elements.js')}}"></script>
+    <script src="{{url_for('static', filename='js/pages/forms/form-validation.js')}}"></script>
+    <script src="{{url_for('static', filename='js/pages/tables/jquery-datatable.js')}}"></script>    
+    <!-- Demo Js -->
+    <script src="{{url_for('static', filename='js/demo.js')}}"></script>
+   
+    {% block bottomScripts %}
+    {% endblock %}
+    <!-- #Scripts# -->
+
+</body>
+</html>

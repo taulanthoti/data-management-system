@@ -1,0 +1,185 @@
+    {% extends "layout.html" %}
+    
+    {% block scripts %}    
+    {% endblock %}
+    <title>{% block title %}New Audit{% endblock %}</title>
+    
+    <!-- CONTENT -->
+    {% block content %}
+    <section class="container">
+        <div class="container-fluid">
+            <ol class="breadcrumb">
+            <li><a href="javascript:void(0);">Dashboard</a></li>                               
+            <li class="active">New Audit</li>
+        </ol>    
+
+        </div>
+      <!--  <div class="container-fluid"> -->
+        
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="card">
+                        <div class="header">
+                            <h2>NEW AUDIT</h2>
+                            <small>Description if needed.</small>                            
+                        </div>
+                        <div class="body">
+                        <div class="col-sm-12">
+                            <p class="card-inside-title">Audit Management Data</p>
+                        </div>
+                            <form id="form_validation" method="POST">
+                                <div class="col-sm-4">
+                                <div class="form-group form-float">
+                                    <div class="form-line">
+                                        <input class="form-control" name="reference_number" type="number" required>
+                                        <label class="form-label">Reference Number</label>
+                                    </div>
+                                </div>
+                                </div>
+                                 <div class="col-sm-5">
+                                <div class="form-group form-float">
+                                    <div class="form-line">
+                                        <input class="form-control" name="audit_title" type="text" required>
+                                        <label class="form-label">Audit Title</label>
+                                    </div>
+                                </div>
+                                </div>
+                                <div class="col-sm-3">                                
+                                    <select class="form-group form-float" name="audit_type" required> 
+                                      <option>Audit Type</option>
+									  <option value="Audit">Audit</option>
+									  <option value="Inspection">Inspection</option>
+									  <option value="Ad-hoc Inspection">Ad-hoc inspection</option>
+									  <option value="Follow-up">Follow-up</option>
+									  <option value="Change">Change</option>
+									  <option value="Unannounced">Unannounced</option>
+									  <option value="other">Other</option>
+									</select>                                                                    
+                                </div>
+                                <div class="col-sm-4">
+                                <div class="form-group">
+                                        <div class="form-line">
+                                            <input class="datepicker form-control" placeholder="Audit Start Date" name="audit_st_date" data-dtp="dtp_f4m89" type="text" required>
+                                        </div>
+                                </div>
+                                </div>
+                                <div class="col-sm-4">
+                                <div class="form-group">
+                                        <div class="form-line">
+                                            <input class="datepicker form-control" placeholder="Audit End Date" name="audit_end_date" data-dtp="dtp_f4m89" type="text" required>
+                                        </div>
+                                </div>                 
+                                </div>
+                                <div class="col-sm-4">              
+                                <div class="form-group form-float">
+                                    <div class="form-line">
+                                        <input class="form-control" name="auditee" type="text" required>
+                                        <label class="form-label">Auditee</label>
+                                    </div>
+                                </div>
+                                </div>
+                                <div class="col-sm-4">
+                                <div class="form-group form-float">
+                                    <div class="form-line">
+                                        <input class="form-control" name="place" type="text" required>
+                                        <label class="form-label">Place</label>
+                                    </div>
+                                </div>
+                                </div>
+                                <div class="col-sm-4">
+                                <div class="form-group form-float">
+                                    <div class="form-line">
+                                        <input class="form-control" name="followup_refnum" type="number" required>
+                                        <label class="form-label">Follow-up reference number</label>
+                                    </div>
+                                </div>
+                                </div>
+                                <div class="col-sm-4">
+                                <div class="form-group form-float">
+                                    <div class="form-line">
+                                        <input class="form-control" name="change_ref_num" type="number" required>
+                                        <label class="form-label">Change reference number</label>
+                                    </div>
+                                </div>
+                                </div>
+                                <div class="col-sm-4">
+                                <div class="form-group form-float">
+                                    <div class="form-line">
+                                        <input class="form-control" name="audit_teamleader" type="text" required>
+                                        <label class="form-label">Audit team leader</label>
+                                    </div>
+                                </div>
+                                </div>
+                                <div class="col-sm-4">
+                                <div class="form-group form-float">
+                                    <div class="form-line">
+                                        <input class="form-control" name="audit_teammembers" type="text" required>
+                                        <label class="form-label">Audit team members</label>
+                                    </div>
+                                </div>
+                                </div>
+                                <div class="col-sm-4">
+                                <div class="form-group form-float">
+                                    <div class="form-line">
+                                        <input class="form-control" name="auditee_participants" type="text" required>
+                                        <label class="form-label">Auditee participants</label>
+                                    </div>
+                                </div>
+                                </div>
+                                <div class="col-sm-12">
+                                    <p class="card-inside-title">Audit scope</p>                                
+                                </div>
+                                <div class="col-sm-12">
+                                <div class="form-group form-float">
+                                    <div class="form-line">
+                                        <textarea name="description" cols="30" rows="3" class="form-control no-resize" name="audit_scope" required></textarea>
+                                        <label class="form-label">Add dynamically fields of requirements</label>
+                                    </div>
+                                </div>
+                                </div>
+                                <div class="col-sm-12">
+                                    <p class="card-inside-title">Document review</p>                                
+                                </div>
+                                <div class="col-sm-12">
+                                <div class="form-group form-float">
+                                    <div class="form-line">
+                                        <textarea name="doc_review" cols="30" rows="3" class="form-control no-resize" name="doc_review" required></textarea>
+                                        <label class="form-label">Document Review</label>
+                                    </div>
+                                </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group form-float">
+                                        <div class="form-line">
+                                            <input class="form-control" name="ref_num" type="number" required>
+                                            <label class="form-label">Reference number</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <div class="form-line">
+                                            <input class="datetimepicker form-control" placeholder="Version/Date" name="version_date" data-dtp="dtp_Yi6ga" type="text" required>
+                                        </div>
+                                    </div>
+                                </div>
+                                <button class="btn btn-primary waves-effect" type="submit">SAVE</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            <!--</div>           -->
+    </section>
+    {% endblock %}
+    <!-- #CONTENT -->
+
+
+    {% block bottomScripts %}           
+    
+    <script type="text/javascript">
+        $('.datetimepicker').bootstrapMaterialDatePicker({ format : 'DD/MM/YYYY', weekStart : 0, time: false }); 
+    </script>
+    <script type="text/javascript">
+        $('.datepicker').bootstrapMaterialDatePicker({ format : 'DD/MM/YYYY',weekStart : 0, time: false }); 
+    </script>
+    
+    {% endblock %}

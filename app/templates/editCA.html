@@ -1,0 +1,181 @@
+    {% extends "layout.html" %}
+    {% block scripts %}
+    <!-- Bootstrap Material Datetime Picker Css -->
+    <link href="{{url_for('static', filename='plugins/bootstrap-material-datetimepicker/css/bootstrap-material-datetimepicker.css')}}" rel="stylesheet" />
+    <!-- Wait Me Css -->
+    <link href="{{url_for('static', filename='plugins/waitme/waitMe.css')}}" rel="stylesheet" />
+    <!-- Bootstrap Select Css -->
+    <link href="{{url_for('static', filename='plugins/bootstrap-select/css/bootstrap-select.css')}}" rel="stylesheet" />
+    <!-- Sweet Alert Css -->
+    <link href="{{url_for('static', filename='plugins/sweetalert/sweetalert.css')}}" rel="stylesheet)}}" />    
+    {% endblock %}
+    <title>{% block title %}New NC{% endblock %}</title>
+    <!-- CONTENT -->
+    {% block content %}
+    <section class="container">
+        <div class="container-fluid">
+            <ol class="breadcrumb">
+            <li><a href="javascript:void(0);">Dashboard</a></li>                               
+            <li><a href="javascript:void(0);">Audit</a></li>                               
+            <li class="active">Add NC</li>
+        </ol>   
+        </div>
+            <div class="content">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="card">
+                        <div class="header">
+                            <h2>
+                                Corrective Action name
+                                <small>Description if needed.</small>
+                            </h2>                            
+                        </div>
+                        <div class="body">
+                                <form id="form_validation" method="POST">
+                                <div class="col-sm-4">
+                                <div class="form-group form-float">
+                                    <div class="form-line">
+                                        <input class="form-control" name="" value="" required aria-required="true" type="text">
+                                        <label class="form-label">Finding ID</label>
+                                    </div>
+                                </div>
+                                </div>
+                                 <div class="col-sm-8">
+                                <div class="form-group form-float">
+                                    <div class="form-line">
+                                        <input class="form-control" name="" value="" required aria-required="true" type="text">
+                                        <label class="form-label">Corrective Action Description</label>
+                                    </div>
+                                </div>
+                                </div>                                 
+                                <div class="col-sm-4">
+                                <div class="form-group">
+                                        <div class="form-line">
+                                            <input class="datepicker form-control" value="" placeholder="Date of CAP approval" data-dtp="dtp_f4m89" type="text">
+                                        </div>
+                                </div>
+                                </div>
+                                <div class="col-sm-4">
+                                <div class="form-group">
+                                        <div class="form-line">
+                                            <input class="datepicker form-control" value="" placeholder="Due Date" data-dtp="dtp_f4m89" type="text">
+                                        </div>
+                                </div>                 
+                                </div>
+                                <div class="col-sm-4">              
+                                <div class="form-group form-float">
+                                    <div class="form-line">
+                                        <input class="form-control" name="" value="" required aria-required="true" type="text">
+                                        <label class="form-label">Contact person</label>
+                                    </div>
+                                </div>
+                                </div>
+                                <div class="col-sm-4">
+                                <div class="form-group">
+                                        <div class="form-line">
+                                            <input class="datepicker form-control" value="" placeholder="Closure Date" data-dtp="dtp_f4m89" type="text">
+                                        </div>
+                                </div>                 
+                                </div>
+                                <div class="col-sm-8">
+                                <div class="form-group form-float">
+                                    <div class="form-line">
+                                        <input class="form-control" name="" value="" required aria-required="true" type="text">
+                                        <label class="form-label">Due Date History</label>
+                                    </div>
+                                </div>
+                                </div>
+                                <p class="card-inside-title">Auditee corrective actions</p>
+                                <div class="col-sm-6">
+                                <div class="form-group">
+                                        <div class="form-line">
+                                            <input class="datepicker form-control" value="" placeholder="Date" data-dtp="dtp_f4m89" type="text">
+                                        </div>
+                                </div>                 
+                                </div>                                
+                                <div class="col-sm-6">
+                                <div class="form-group">
+                                        <div class="form-line">
+                                            <input class="datepicker form-control" value="" placeholder="New proposed due date" data-dtp="dtp_f4m89" type="text">
+                                        </div>
+                                </div>                 
+                                </div>
+                                <div class="col-sm-12">
+                                <div class="form-group form-float">
+                                    <div class="form-line">
+                                        <input class="form-control" name="" value="" required aria-required="true" type="text">
+                                        <label class="form-label">Description</label>
+                                    </div>
+                                </div>
+                                </div>
+                                <p class="card-inside-title">CAA Follow up actions</p>
+                                <div class="col-sm-4">
+                                <div class="form-group">
+                                        <div class="form-line">
+                                            <input class="datepicker form-control" value="" placeholder="Date" data-dtp="dtp_f4m89" type="text">
+                                        </div>
+                                </div>                 
+                                </div>                                
+                                <div class="col-sm-4">
+                                <div class="form-group form-float">
+                                    <div class="form-line">
+                                        <input class="form-control" name="" value="" required aria-required="true" type="text">
+                                        <label class="form-label">Who is responsible</label>
+                                    </div>
+                                </div>
+                                </div>
+                                <div class="col-sm-4">
+                                <div class="form-group">
+                                        <div class="form-line">
+                                            <input class="datepicker form-control" value="" placeholder="New Due Date" data-dtp="dtp_f4m89" type="text">
+                                        </div>
+                                </div>                 
+                                </div>
+                                <div class="col-sm-12">
+                                <div class="form-group form-float">
+                                    <div class="form-line">
+                                        <input class="form-control" name="" value="" required aria-required="true" type="text">
+                                        <label class="form-label">Description</label>
+                                    </div>
+                                </div>
+                                </div>
+
+                                
+                                <button class="btn bg-teal waves-effect" type="submit">UPDATE</button>
+                            </form> 
+                        </div>
+                    </div>
+                </div>                
+            </div>
+    </section>
+    {% endblock %}
+    <!-- #CONTENT -->
+
+
+    {% block bottomScripts %}
+    <script type="text/javascript">
+            $(document).ready(function () {
+            $(document).on('mouseenter', '.actions', function () {
+                $(this).find("a").show();
+            }).on('mouseleave', '.actions', function () {
+                $(this).find("a").hide();
+            });
+        });        
+    </script> 
+    <!-- Jquery Validation Plugin Css -->
+    <script src="{{url_for('static', filename='plugins/jquery-validation/jquery.validate.js')}}"></script>
+    <!-- Autosize Plugin Js -->
+    <script src="{{url_for('static', filename='plugins/autosize/autosize.js')}}"></script>
+    <!-- Sweet Alert Plugin Js -->
+    <script src="{{url_for('static', filename='plugins/sweetalert/sweetalert.min.js')}}"></script>    
+    <!-- Moment Plugin Js -->
+    <script src="{{url_for('static', filename='plugins/momentjs/moment.js')}}"></script>
+    <!-- Bootstrap Material Datetime Picker Plugin Js -->
+    <script src="{{url_for('static', filename='plugins/bootstrap-material-datetimepicker/js/bootstrap-material-datetimepicker.js')}}">        
+    </script>
+    <script type="text/javascript">
+        $('.datetimepicker').bootstrapMaterialDatePicker({ format : 'DD/MM/YYYY', weekStart : 0, time: false }); 
+    </script>
+    <script type="text/javascript">
+        $('.datepicker').bootstrapMaterialDatePicker({ format : 'DD/MM/YYYY',weekStart : 0, time: false }); 
+    </script>
+    {% endblock %}

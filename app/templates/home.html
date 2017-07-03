@@ -1,0 +1,204 @@
+﻿	{% extends "layout.html" %}
+
+    {% block scripts %}
+	<script type="text/javascript">
+        $(document).ready(function(){
+        $('.remove').click(function(){
+            var url = '/remove/';
+            var audit_id = this.id;
+            $.post(url, {"audit_id": audit_id}, function(data){
+            var element = '#'+ audit_id;               
+            $(element).parent().parent().remove();
+            });
+        });
+    });  
+        
+    $(document).ready(function(){
+        $('.view').click(function(){
+            var url = '/auditEdit/'+this.id;
+            var audit_id = this.id;
+            $.get(url, function(data){
+                var element = '#'+ audit_id;                               
+            });
+        });
+    });     
+    </script>
+    <!-- Sweetalert Css -->
+    <link href="{{url_for('static', filename='plugins/sweetalert/sweetalert.css')}}" rel="stylesheet" />
+    <!-- JQuery DataTable Css -->
+    <link href="{{url_for('static', filename='plugins/jquery-datatable/skin/bootstrap/css/dataTables.bootstrap.css')}}" rel="stylesheet">   
+    {% endblock %}
+    <title>{% block title %}Dashboard{% endblock %}</title>
+    <!-- CONTENT -->
+    {% block content %}
+    <section class="container">
+        <div class="container-fluid">
+            <div class="block-header">
+                <h2>DASHBOARD</h2>                
+            </div>
+            <!-- MESSAGE FLASHING -->
+            {% with messages = get_flashed_messages() %}
+                {% if messages %}                    
+                {% for message in messages %}
+                <div class="alert bg-green alert-dismissible" role="alert">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span   aria-hidden="true">×</span>
+                    </button>
+                    {{ message }}
+                </div>
+                {% endfor %}                    
+                {% endif %}
+            {% endwith %}            
+            <!-- #MESSAGE FLASHING -->
+        </div>
+      <!--  <div class="content">-->
+                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                  <div class="info-box-3 hover-expand-effect">
+                                <div class="icon">
+                                    <i class="material-icons col-blue">search</i>
+                                </div>
+                                <div class="content">
+                                    <div class="text">NEW AUDITS</div>
+                                    <!--<div class="number">125</div>-->
+                                    <div class="number count-to" data-from="0" data-to="257" data-speed="1300" data-fresh-interval="20">257</div>
+                                </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                   <div class="info-box-3 hover-expand-effect">
+                                <div class="icon">
+                                    <i class="material-icons col-blue">flight</i>
+                                </div>
+                                <div class="content">
+                                    <div class="text">INSPECTIONS</div>
+                                    <!--<div class="number">125</div>-->
+                                    <div class="number count-to" data-from="0" data-to="257" data-speed="1300" data-fresh-interval="20">257</div>
+                                </div>
+                            </div>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                    <div class="info-box-3 hover-expand-effect">
+                                <div class="icon">
+                                    <i class="material-icons col-blue">history</i>
+                                </div>
+                                <div class="content">
+                                    <div class="text">FOLLOW-UPS</div>
+                                    <!--<div class="number">125</div>-->
+                                    <div class="number count-to" data-from="0" data-to="257" data-speed="1300" data-fresh-interval="20">257</div>
+                                </div>
+                            </div>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                   <div class="info-box-3 hover-expand-effect">
+                                <div class="icon">
+                                    <i class="material-icons col-blue">folder_open</i>
+                                </div>
+                                <div class="content">
+                                    <div class="text">AD-HOCS</div>
+                                    <!--<div class="number">125</div>-->
+                                    <div class="number count-to" data-from="0" data-to="257" data-speed="1300" data-fresh-interval="20">257</div>
+                                </div>
+                            </div>
+                </div>
+            <!--</div>-->
+            <div class="container-fluid">
+                <a class="btn btn-default btn-circle-lg waves-effect waves-circle waves-float" role="button" data-toggle="tooltip" data-placement="right" title="New Audit" href="{{ url_for('main.newAudit') }}">
+                <i class="material-icons">add</i>
+                </a>               
+            </div>
+            <div> </br> </div>
+            <!-- DATA TABLE -->
+            <div class="content">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="card">
+                        <div class="header">
+                            <h2>
+                                AUDIT HISTORY
+                            </h2>
+                            
+                        </div>
+                        <div class="body">
+                       <div class="table-responsive"><!-- table responsive div-->
+                            <table class="table table-bordered table-striped table-hover dataTable js-exportable">
+                                <thead>
+                                    <tr>
+                                        <th>Audit Title</th>
+                                        <th>Auditee</th>
+                                        <th>Place</th>
+                                        <th>Team Leader</th>
+                                        <th>Start Date</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tfoot>
+                                    <tr>
+                                        <th>Audit Title</th>
+                                        <th>Auditee</th>
+                                        <th>Place</th>
+                                        <th>Team Leader</th>
+                                        <th>Start Date</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </tfoot>
+                                <tbody>
+                                      {% for audit in audits %}
+                                    <tr>
+                                        <td>{{ audit.audit_title }}</td>
+                                        <td>{{ audit.auditee }}</td>
+                                        <td>{{ audit.place }}</td>
+                                        <td>{{ audit.audit_teamleader }}</td>
+                                        <td>{{ audit.audit_st_date }}</td>
+                                        <td class="actions">
+                                           <a id="{{ audit._id }}" class="view" style="display: none; color: grey;" 
+                                                onclick="window.location='/auditEdit/'+this.id;">
+                                                <i class="material-icons">visibility</i>
+                                            </a>
+                                            <a id="{{ audit._id }}" class="remove" style="display: none; color: grey;">
+                                                <i class="material-icons">delete</i>
+                                            </a>
+                                        </td>
+                                    </tr>                                                                       
+                                        {% endfor %}
+                                </tbody>
+                            </table>
+                          </div> <!-- table responsive div-->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- #data table -->           
+    </section>
+
+    {% endblock %}
+    <!-- #CONTENT -->
+
+
+
+    {% block bottomScripts %}
+    
+    <script type="text/javascript">
+            $(document).ready(function () {
+            $(document).on('mouseenter', '.actions', function () {
+                $(this).find("a").show();
+            }).on('mouseleave', '.actions', function () {
+                $(this).find("a").hide();
+            });
+        });        
+    </script>
+    
+    <script type="text/javascript">
+        $('.count-to').countTo();
+    </script>
+     <!-- SweetAlert Plugin Js -->
+    <script src="{{url_for('static',filename='plugins/sweetalert/sweetalert.min.js')}}"></script>
+    <!-- Jquery DataTable Plugin Js -->
+    <script src="{{url_for('static', filename='plugins/jquery-datatable/jquery.dataTables.js')}}"></script>
+    <script src="{{url_for('static', filename='plugins/jquery-datatable/skin/bootstrap/js/dataTables.bootstrap.js')}}"></script>
+    <script src="{{url_for('static', filename='plugins/jquery-datatable/extensions/export/dataTables.buttons.min.js')}}"></script>
+    <script src="{{url_for('static', filename='plugins/jquery-datatable/extensions/export/dataTables.buttons.min.js')}}"></script>
+    <script src="{{url_for('static', filename='plugins/jquery-datatable/extensions/export/jszip.min.js')}}"></script>
+    <script src="{{url_for('static', filename='plugins/jquery-datatable/extensions/export/pdfmake.min.js')}}"></script>
+    <script src="{{url_for('static', filename='plugins/jquery-datatable/extensions/export/vfs_fonts.js')}}"></script>
+    <script src="{{url_for('static', filename='plugins/jquery-datatable/extensions/export/buttons.html5.min.js')}}"></script>
+    <script src="{{url_for('static', filename='plugins/jquery-datatable/extensions/export/buttons.print.min.js')}}"></script>
+    {% endblock %}
+    

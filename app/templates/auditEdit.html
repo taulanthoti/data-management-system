@@ -1,0 +1,340 @@
+﻿    {% extends "layout.html" %}
+
+    {% block scripts %}    
+    <!-- Bootstrap Material Datetime Picker Css -->
+    <link href="{{url_for('static', filename='plugins/bootstrap-material-datetimepicker/css/bootstrap-material-datetimepicker.css')}}" rel="stylesheet" />
+    <!-- Wait Me Css -->
+    <link href="{{url_for('static', filename='plugins/waitme/waitMe.css')}}" rel="stylesheet" />
+    <!-- Bootstrap Select Css -->
+    <link href="{{url_for('static', filename='plugins/bootstrap-select/css/bootstrap-select.css')}}" rel="stylesheet" />
+    <!-- Sweet Alert Css -->
+    <link href="{{url_for('static', filename='plugins/sweetalert/sweetalert.css')}}" rel="stylesheet" />
+    <!-- Light Gallery Plugin Css -->
+    <link href="{{url_for('static',filename='plugins/light-gallery/css/lightgallery.css')}}" rel="stylesheet">
+    {% endblock %}
+    <title>{% block title %}Audit View/Edit{% endblock %}</title>
+
+    
+    {% block content %}  
+    
+    <section class="container">
+        <div class="container-fluid">
+            <ol class="breadcrumb">
+            <li><a href="javascript:void(0);">Dashboard</a></li>                               
+            <li><a href="javascript:void(0);">Audit</a></li>                                           
+            <li class="active">View/Edit Audit</li>
+        </ol>   
+        </div>
+      <!--  <div class="container-fluid"> -->
+        
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="card">
+                        <div class="header">
+                            <h2>{{audit.audit_title}}</h2>
+                            <small>Audit Title</small>                            
+                        </div>
+                        <div class="body">
+                        <p class="card-inside-title">Audit Management Data</p>
+                            <form id="form_validation" method="POST">
+                            
+                                <div class="col-sm-4">
+                                <div class="form-group form-float">
+                                    <div class="form-line">
+                                        <input class="form-control" name="reference_number" type="text" value="{{audit.reference_number}}" required>
+                                        <label class="form-label">Reference Number</label>
+                                    </div>
+                                </div>
+                                </div>
+                                 <div class="col-sm-5">
+                                <div class="form-group form-float">
+                                    <div class="form-line">
+                                        <input class="form-control" name="audit_title" type="text" value="{{audit.audit_title}}" required>
+                                        <label class="form-label">Audit Title</label>
+                                    </div>
+                                </div>
+                                </div>
+                                <div class="col-sm-3">                                
+                                    <select class="form-group form-float" name="audit_type" required> 
+                                      <option value="">Audit Type</option>
+                                      <option value="">Audit</option>
+                                      <option value="">Inspection</option>
+                                      <option value="">Ad-hoc inspection</option>
+                                      <option value="">Follow-up</option>
+                                      <option value="">Change</option>
+                                      <option value="">Unannounced</option>
+                                      <option value="">Other</option>
+                                    </select> 
+                                </div>
+                                <div class="col-sm-4">
+                                <div class="form-group">
+                                        <div class="form-line">
+                                            <input class="datepicker form-control" placeholder="Audit Start Date" 
+                                            name="audit_st_date" data-dtp="dtp_f4m89" type="text" 
+                                            value="{{audit.audit_st_date}}" required>
+                                        </div>
+                                </div>
+                                </div>
+                                <div class="col-sm-4">
+                                <div class="form-group">
+                                        <div class="form-line">
+                                            <input class="datepicker form-control" placeholder="Audit End Date" 
+                                            name="audit_end_date" data-dtp="dtp_f4m89" type="text" 
+                                            value="{{audit.audit_end_date}}" required>
+                                        </div>
+                                </div>                 
+                                </div>
+                                <div class="col-sm-4">              
+                                <div class="form-group form-float">
+                                    <div class="form-line">
+                                        <input class="form-control" name="auditee" type="text" 
+                                        value="{{audit.auditee}}" required>
+                                        <label class="form-label">Auditee</label>
+                                    </div>
+                                </div>
+                                </div>
+                                <div class="col-sm-4">
+                                <div class="form-group form-float">
+                                    <div class="form-line">
+                                        <input class="form-control" name="place" type="text" 
+                                        value="{{audit.place}}" required>
+                                        <label class="form-label">Place</label>
+                                    </div>
+                                </div>
+                                </div>
+                                <div class="col-sm-4">
+                                <div class="form-group form-float">
+                                    <div class="form-line">
+                                        <input class="form-control" name="followup_refnum" type="number" 
+                                        value="{{audit.followup_refnum}}" required>
+                                        <label class="form-label">Follow-up reference number</label>
+                                    </div>
+                                </div>
+                                </div>
+                                <div class="col-sm-4">
+                                <div class="form-group form-float">
+                                    <div class="form-line">
+                                        <input class="form-control" name="change_ref_num" type="number" 
+                                        value="{{audit.change_ref_num}}" required>
+                                        <label class="form-label">Change reference number</label>
+                                    </div>
+                                </div>
+                                </div>
+                                <div class="col-sm-4">
+                                <div class="form-group form-float">
+                                    <div class="form-line">
+                                        <input class="form-control" name="audit_teamleader" type="text" 
+                                        value="{{audit.audit_teamleader}}" required>
+                                        <label class="form-label">Audit team leader</label>
+                                    </div>
+                                </div>
+                                </div>
+                                <div class="col-sm-4">
+                                <div class="form-group form-float">
+                                    <div class="form-line">
+                                        <input class="form-control" name="audit_teammembers" type="text" 
+                                        value="{{audit.audit_teammembers}}" required>
+                                        <label class="form-label">Audit team members</label>
+                                    </div>
+                                </div>
+                                </div>
+                                <div class="col-sm-4">
+                                <div class="form-group form-float">
+                                    <div class="form-line">
+                                        <input class="form-control" name="auditee_participants" type="text" 
+                                        value="{{audit.auditee_participants}}" required>
+                                        <label class="form-label">Auditee participants</label>
+                                    </div>
+                                </div>
+                                </div>
+                                <p class="card-inside-title">Audit scope</p>                                
+                                <div class="col-sm-12">
+                                <div class="form-group form-float">
+                                    <div class="form-line">
+                                        <textarea cols="30" rows="3" class="form-control no-resize" 
+                                        name="audit_scope" required>{{ audit.audit_scope }}</textarea>
+                                        <label class="form-label">Add dynamically fields of requirements</label>
+                                    </div>
+                                </div>
+                                </div>
+                                <p class="card-inside-title">Document review</p>                                
+                                <div class="col-sm-12">
+                                <div class="form-group form-float">
+                                    <div class="form-line">
+                                        <textarea name="doc_review" cols="30" rows="3" class="form-control no-resize" 
+                                         value="{{audit.doc_review}}" required></textarea>
+                                        <label class="form-label">Document Review</label>
+                                    </div>
+                                </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group form-line">
+                                        <div class="form-line">
+                                            <input class="form-control" name="ref_num" type="number" 
+                                            value="{{audit.ref_num}}" required>
+                                            <label class="form-label">Reference number</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <div class="form-line">
+                                            <input class="datetimepicker form-control" placeholder="Version/Date" name="version_date" data-dtp="dtp_Yi6ga" type="text" 
+                                            value="{{audit.version_date}}" required>
+                                        </div>
+                                    </div>
+                                </div>
+                                <button class="btn bg-teal waves-effect" type="submit">UPDATE</button>
+                                
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            <!--</div>           -->
+            <!-- NC and Document attach       -->
+            <div class="content">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="card">
+                        <div class="header">
+                            <h2>
+                                NC (Non Conformity) and Document attachment
+                                <small>Description if needed.</small>
+                            </h2>                            
+                        </div>
+                        <div class="body">                           
+                            <a class="btn bg-pink waves-effect m-b-15" role="button" href="{{url_for('main.newNC', audit_id=audit._id)}}" >
+                                Add NC &#47; CA
+                            </a>
+                            <button class="btn bg-pink waves-effect m-b-15" type="button" data-toggle="collapse" data-target="#collapse" aria-expanded="false" aria-controls="collapse">
+                                Attach Documents
+                            </button>
+                            <button class="btn bg-pink waves-effect m-b-15" type="button" data-toggle="collapse" data-target="#collapseGallery" aria-expanded="false" aria-controls="collapseGallery">
+                                View Documents
+                            </button>
+                            <!-- attach documents collapse -->
+                            <div class="collapse" id="collapse">
+                                <div class="body">                                    
+                                <form method="POST" enctype="multipart/form-data">
+                                    <div class="row clearfix">
+                                        <div class="col-xs-3 col-sm-3 col-md-3 col-lg-4">                                        
+                                            <input class="btn btn-primary waves-effect" name="document1" type="file">
+                                        </div>                                    
+                                        <div class="col-xs-3 col-sm-3 col-md-3 col-lg-4">                                        
+                                            <input class="btn btn-primary waves-effect" name="document2" type="file">
+                                        </div>                                        
+                                        <div class="col-xs-3 col-sm-3 col-md-3 col-lg-4">                                       
+                                            <input class="btn btn-primary waves-effect" name="document3" type="file">
+                                        </div>
+                                        <button class="btn bg-teal waves-effect m-b-15" type="submit">
+                                            Submit
+                                        </button>                                        
+                                   </div>
+                                </form>
+                                </div>
+                            </div>
+                            <!-- #attach documents collapse -->
+                            <!-- view documents collapse -->
+                            <div class="collapse" id="collapseGallery">
+                                <div class="body">                                    
+                                    <div id="aniimated-thumbnials" class="list-unstyled row clearfix">
+                                <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                                    <a href="{{url_for('static', filename='uploads/logic.jpg')}}" data-sub-html="Demo Description">
+                                        <img class="img-responsive thumbnail" src="{{url_for('static', filename='uploads/logic.jpg')}}">
+                                    </a>
+                                </div>
+                                <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                                    <a href="{{url_for('static', filename='uploads/requirements.png')}}" data-sub-html="Demo Description">
+                                        <img class="img-responsive thumbnail" src="{{url_for('static', filename='uploads/requirements.png')}}">
+                                    </a>
+                                </div>
+                                <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                                    <a href="{{url_for('static', filename='uploads/CAA-mockup-logic.png')}}" data-sub-html="Demo Description">
+                                        <img class="img-responsive thumbnail" src="{{url_for('static', filename='uploads/CAA-mockup-logic.png')}}">
+                                    </a>
+                                </div>                                
+                                </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- #view documents collapse -->
+                    </div>
+                </div>
+
+                <!-- NC TABLE -->
+                <div class="col-xs-12 col-sm-12 col-md-8 col-lg-12">
+                    <div class="card">
+                        <div class="header">
+                            <h2>NC LIST</h2>                            
+                        </div>
+                        <div class="body">
+                            <div class="table-responsive">
+                                <table class="table table-hover dashboard-task-infos">
+                                    <thead>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>Title</th>
+                                            <th>Status</th>
+                                            <th>Due date</th>
+                                            <th>Auditee</th>
+                                            <th>Actions</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>1</td>
+                                            <td>NC A</td>
+                                            <td><span class="label bg-green">Doing</span></td>
+                                            <td>31/12/2017</td>
+                                            <td>John Doe</td>
+                                            <td class="actions">
+                                                <a id="" class="view" style="color: grey;">
+                                                    <i class="material-icons">visibility</i>
+                                                </a>
+                                                <a id="" class="remove" style="color: grey;">
+                                                    <i class="material-icons">delete</i>
+                                                </a>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </section>
+    
+    {% endblock %}
+     
+
+
+
+    <!-- #CONTENT -->
+    
+    {% block bottomScripts %}      
+    <script type="text/javascript">
+            $(document).ready(function () {
+            $(document).on('mouseenter', '.actions', function () {
+                $(this).find("a").show();
+            }).on('mouseleave', '.actions', function () {
+                $(this).find("a").hide();
+            });
+        });        
+    </script> 
+    <!-- Light Gallery Plugin Js -->
+    <script src="{{url_for('static',filename='plugins/light-gallery/js/lightgallery-all.js')}}"></script>
+    <script src="{{url_for('static',filename='js/pages/medias/image-gallery.js')}}"></script>
+    <!-- Autosize Plugin Js -->
+    <script src="{{url_for('static', filename='plugins/autosize/autosize.js')}}"></script>
+    <!-- Sweet Alert Plugin Js -->
+    <script src="{{url_for('static', filename='plugins/sweetalert/sweetalert.min.js')}}"></script>    
+    <!-- Moment Plugin Js -->
+    <script src="{{url_for('static', filename='plugins/momentjs/moment.js')}}"></script>
+    <!-- Bootstrap Material Datetime Picker Plugin Js -->
+    <script src="{{url_for('static', filename='plugins/bootstrap-material-datetimepicker/js/bootstrap-material-datetimepicker.js')}}"></script>
+    <script type="text/javascript">
+        $('.datetimepicker').bootstrapMaterialDatePicker({ format : 'DD/MM/YYYY', weekStart : 0, time: false }); 
+    </script>
+    <script type="text/javascript">
+        $('.datepicker').bootstrapMaterialDatePicker({ format : 'DD/MM/YYYY',weekStart : 0, time: false }); 
+    </script>
+    {% endblock %}
