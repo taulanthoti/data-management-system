@@ -1,0 +1,23 @@
+#home page
+1.Funksionalizimi ne backend i counting-info-boxes
+2.Audit History table - korrigjimi i query-it ne backend sepse i shfaq NC-te edhe CA-te
+
+#newAudit page
+1. Select-elementi <<audit-type>> kur ekzekutohet validimi
+
+#auditEdit page
+1. Backend code per me ekzekutu update-in nuk eshte i funksionalizum
+2. elementin <select> nuk e shfaq ne Edit mode
+3. 2 elemente <textarea> nuk i shfaq nga db (audit scope,document review)
+4. Attach documents funksionon, por nuk permbajne ID te auditit (nuk identifikohen sipas Auditit ne menyre unike)
+5. View Documents button //to do// install a gallery
+6. NC list tabela nuk ka query funksionale. Action buttons jon ready //to do//
+
+#newNC page
+1. CA list tabela nuk ka query funksionale. Action buttons jon ready
+
+#auditEdit page
+#editCA page
+#editNC page
+1. UPDATE function in backend 
+2. Identifikimi(shenimi) i vlerave ne atributin (value="")
